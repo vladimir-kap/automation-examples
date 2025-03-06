@@ -25,17 +25,17 @@ public class storeSessionTest2 {
         page.locator("//button[@role=\"button\"]").locator("nth=1").click();
         assertThat(page.locator("//a[@href=\"/login\"]")).isVisible();
         page.click("//a[@href=\"/login\"]");
-        page.locator("//input[@name=\"text\"]").fill("bobahkocmohabt@gmail.com");
+        page.locator("//input[@name=\"text\"]").fill("test_test@gmail.com");
         page.keyboard().press("Enter");
         assertThat(page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]")).isVisible();
         if (page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").isVisible()){
             System.out.println("system asked for username");
-            page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@leBOBAH");
+            page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@test_test");
             page.locator("//button[@data-testid=\"ocfEnterTextNextButton\"]").click();
         } else {
             System.out.println("system didn't asked for username");
         }
-        page.locator("//input[@type=\"password\"]").fill("381-TWTTR**");
+        page.locator("//input[@type=\"password\"]").fill("test_test");
         page.locator("//button[@data-testid=\"LoginForm_Login_Button\"]").click();
         //saving login session:
         browser.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("playwright/.auth/auth.json")));

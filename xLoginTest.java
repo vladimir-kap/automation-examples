@@ -19,20 +19,20 @@ public class xLoginTest {
             page.navigate("https://x.com/");
             System.out.println(page.title());
             page.click("//a[@href=\"/login\"]");
-            page.locator("//input[@name=\"text\"]").fill("bobahkocmohabt@gmail.com");
+            page.locator("//input[@name=\"text\"]").fill("test_test@gmail.com");
             page.keyboard().press("Enter");
 
             //без утверждения этого локатора if else не будет видеть этот локатор (но я не выяснил почему именно так работает) может быть из-за try в начале
             assertThat(page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]")).isVisible();
             if (page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").isVisible()){
                 System.out.println("if");
-                page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@leBOBAH");
+                page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@test_test");
                 page.locator("//button[@data-testid=\"ocfEnterTextNextButton\"]").click();
             } else {
                 System.out.println("else");
             }
 
-            page.locator("//input[@type=\"password\"]").fill("381-TWTTR**");
+            page.locator("//input[@type=\"password\"]").fill("test_test");
             page.locator("//button[@data-testid=\"LoginForm_Login_Button\"]").click();
             page.locator("//a[@href=\"/home\"]").isVisible();
             /*page.waitForLoadState(LoadState.DOMCONTENTLOADED);*/

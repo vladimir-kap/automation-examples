@@ -1,9 +1,6 @@
 package org.example;
-
 import com.microsoft.playwright.*;
-
 import java.nio.file.Paths;
-
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static java.util.Arrays.asList;
 
@@ -32,17 +29,17 @@ public class Test1 extends Thread {
             page.navigate("https://x.com/");
             assertThat(page.locator("//a[@href=\"/login\"]")).isVisible();
             page.click("//a[@href=\"/login\"]");
-            page.locator("//input[@name=\"text\"]").fill("bobahkocmohabt@gmail.com");
+            page.locator("//input[@name=\"text\"]").fill("test_test@gmail.com");
             page.keyboard().press("Enter");
             assertThat(page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]")).isVisible();
             if (page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").isVisible()){
                 System.out.println("system asked for username");
-                page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@leBOBAH");
+                page.locator("//input[@data-testid=\"ocfEnterTextTextInput\"]").fill("@test_test");
                 page.locator("//button[@data-testid=\"ocfEnterTextNextButton\"]").click();
             } else {
                 System.out.println("system didn't asked for username");
             }
-            page.locator("//input[@type=\"password\"]").fill("381-TWTTR**");
+            page.locator("//input[@type=\"password\"]").fill("test_test");
             page.locator("//button[@data-testid=\"LoginForm_Login_Button\"]").click();
             page.waitForTimeout(10000);
             page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("user-agent-" + browserName + ".png")));

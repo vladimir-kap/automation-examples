@@ -1,4 +1,4 @@
-//this script stores login session
+//this script stores login session in .json file
 //also using notations with junit5
 //simple login into github - store session, close browser, open another and use store session to look at locator that is visible only for logged user
 //also learned launch in order with junit
@@ -27,7 +27,7 @@ public class SessionStoreWorking {
 
         page.navigate("https://github.com/login");
         page.locator("//input[@name=\"login\"]").fill("test_test@gmail.com\n");
-        page.locator("//input[@name=\"password\"]").fill("381-GT**a");
+        page.locator("//input[@name=\"password\"]").fill("test_test");
         page.locator("//input[@value=\"Sign in\"]").click();
         //saving login session:
         browser.storageState(new BrowserContext.StorageStateOptions().setPath(Paths.get("playwright/.auth/auth.json")));
